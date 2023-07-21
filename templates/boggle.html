@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %}Boggle{% endblock %}
+
+{% block content %}
+
+<section id="boggle">
+
+<table>
+    {% for col in range(board[0]|length) %}
+    <tr>
+        {% for row in board %}
+        <td>{{row[col]}}</td>
+        {% endfor %}
+    </tr>
+{% endfor %}
+</table>
+
+<p>High Score:
+    <b>{{highscore}}</b>
+    in {{nplays}} plays
+</p>
+
+<p>
+    Score: <b class="score">0</b>
+    Seconds Left: <b class="timer"></b>
+</p>
+
+<br>
+<form method="POST" class="add-word">
+    <label for="user_input">Enter a word:</label>
+    <input type="text" id="user_input" name="user_input">
+    <button>Add Word</button>
+</form>
+
+<p class="msg">
+
+</p>
+
+<ul class="words">
+
+</ul>
+
+</section>
+{% endblock %}
